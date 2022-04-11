@@ -5,3 +5,18 @@
 .clear-landing-view {
   display: none;
 }
+
+.date-picker-view {
+  min-height: 100vh;
+  padding-top: 45px;
+}
+
+.date-picker-box {
+  border: 2px solid #000;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 35px;
+  margin: auto;
+  width: 80%;
+  min-height: 40%;
+}

@@ -1,8 +1,31 @@
 // Variables for containers
 const landingContainer = document.querySelector("#landing-view");
 const userDisplay = document.querySelector("#user-display");
+const soberPickerView = document.querySelector("#sober-date-view")
 
 let loggedInUser;
+let today = new Date();
+
+// Collect and save sober Date
+saveSoberDate = () => {
+
+};
+
+saveSoberDate = () => {
+  const enteredSoberDate = document.getElementById("sober-date").value;
+  buildfire.userData.save(
+    {
+      soberDate: enteredSoberDate,
+    }, "userSoberDate", (err, result) => {
+      if (err) {
+        return console.error(err)
+      } else {
+        console.log(result);
+        removeModal();
+      }
+    });
+
+}
 
 // Upon arrival to plugin 
 landing = () => {
@@ -19,12 +42,14 @@ landing = () => {
     } else {
       loggedInUser = user.username;
       userDisplay.innerHTML = `${loggedInUser}`;
+      console.log(today);
     }
   });
 }
 
 removeModal = () => {
   landingContainer.setAttribute("class", "clear-landing-view")
+
 }
 
 landing()
