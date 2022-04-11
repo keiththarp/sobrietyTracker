@@ -1,0 +1,7 @@
+.landing-view {
+  min-height: 100vh;
+}
+
+.clear-landing-view {
+  display: none;
+}
