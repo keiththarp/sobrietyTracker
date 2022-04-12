@@ -12,27 +12,31 @@
 
 <body>
 
-  Left off trying to coordinate labels like sober picker view etc. I'm in the middle of that and really shouldn't be
-  saving and committing, but I am, cause I'm hungry.
-
   <!-- Sobriety Date Picker -->
-  <div id="sober-picker-view" class="container-fluid date-picker-view">
-    <div class="date-picker-box">
+  <div id="sober-picker-view" class="container-fluid sober-picker-view">
+    <div class="sober-picker-box">
       <label for="start">Select your sober date:</label>
 
-      <input type="date" id="sober-date" name="sober-date">
+      <input type="date" id="sober-date" name="sober-date" class="sober-date">
       <button onclick="saveSoberDate()" class="btn btn-primary">SAVE</button>
     </div>
   </div>
 
   <!-- Landing View will contain daily check in -->
   <div id="landing-view" class="container-fluid bg-primary landing-view">
-    testing
+    <div id="check-in-box">
+      Today was a sober day
+      <button onclick="saveCheckIn()" class="btn btn-success">Check in</button>
+      <p>I've had a recent relapse</p>
+      <button onclick="recentRelapse()" class="btn btn-danger">Relapse</button>
+    </div>
   </div>
 
   <!-- Main View will contain tracker -->
   <div id="main-view">
     <span id="user-display"></span>
+    <p id="sober-date-display"></p>
+
   </div>
 
   <script src="script.js"></script>

@@ -1,16 +1,18 @@
 // Variables for containers
 const landingContainer = document.querySelector("#landing-view");
 const userDisplay = document.querySelector("#user-display");
-const soberPickerView = document.querySelector("#sober-date-view")
+const soberPickerView = document.querySelector("#sober-picker-view")
 
 let loggedInUser;
+let userSoberDate;
+let userSoberDateId;
 let today = new Date();
 
-// Collect and save sober Date
-saveSoberDate = () => {
+// Remove views for conditional rendering
+clearSoberPickerView = () => soberPickerView.setAttribute("class", "clear-sober-picker-view");
+clearLandingView = () => landingContainer.setAttribute("class", "clear-landing-view");
 
-};
-
+// On click function for date picker
 saveSoberDate = () => {
   const enteredSoberDate = document.getElementById("sober-date").value;
   buildfire.userData.save(
@@ -21,11 +23,25 @@ saveSoberDate = () => {
         return console.error(err)
       } else {
         console.log(result);
-        removeModal();
+        clearSoberPickerView();
       }
     });
+};
 
+recentRelapse = () => {
+  buildfire.userData.delete(userSoberDateId, "userSoberDate", (err, result) => {
+    if (err) {
+      return console.error(err)
+    } else {
+      console.log(result);
+    }
+  })
 }
+
+saveCheckIn = () => {
+  clearLandingView();
+  document.querySelector("#sober-date-display").innerHTML = userSoberDate;
+};
 
 // Upon arrival to plugin 
 landing = () => {
@@ -43,13 +59,21 @@ landing = () => {
       loggedInUser = user.username;
       userDisplay.innerHTML = `${loggedInUser}`;
       console.log(today);
+      buildfire.userData.get("userSoberDate", (err, result) => {
+        if (err) {
+          return console.error(err);
+        } else if (!result.data.soberDate) {
+          console.log(result);
+        } else {
+          console.log(result);
+          userSoberDate = result.data.soberDate;
+          userSoberDateId = result.id;
+          clearSoberPickerView();
+        }
+      })
     }
   });
 }
 
-removeModal = () => {
-  landingContainer.setAttribute("class", "clear-landing-view")
-
-}
 
 landing()

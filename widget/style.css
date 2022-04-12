@@ -6,12 +6,16 @@
   display: none;
 }
 
-.date-picker-view {
+.clear-sober-picker-view {
+  display: none;
+}
+
+.sober-picker-view {
   min-height: 100vh;
   padding-top: 45px;
 }
 
-.date-picker-box {
+.sober-picker-box {
   border: 2px solid #000;
   border-radius: 5px;
   padding: 10px;
@@ -19,4 +23,8 @@
   margin: auto;
   width: 80%;
   min-height: 40%;
+}
+
+.sober-date {
+  border: 0px;
 }
