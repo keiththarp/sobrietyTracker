@@ -2,11 +2,23 @@
 const landingContainer = document.querySelector("#landing-view");
 const userDisplay = document.querySelector("#user-display");
 const soberPickerView = document.querySelector("#sober-picker-view")
+const consecutiveSoberDisplay = document.querySelector("#consecutive-sober-display");
 
 let loggedInUser;
 let userSoberDate;
 let userSoberDateId;
-let today = new Date();
+let consecutiveSoberDays;
+
+let year = new Date().getFullYear();
+let month = new Date().getMonth() + 1;
+let day = new Date().getDate();
+
+let today = `${year}/${month}/${day}`;
+
+//Calculate consecutive sober days
+calcConsecutiveSoberDays = () => {
+  consecutiveSoberDays = Math.floor((Date.now() - userSoberDate) / (1000 * 60 * 60 * 24));
+};
 
 // Remove views for conditional rendering
 clearSoberPickerView = () => soberPickerView.setAttribute("class", "clear-sober-picker-view");
@@ -14,7 +26,7 @@ clearLandingView = () => landingContainer.setAttribute("class", "clear-landing-v
 
 // On click function for date picker
 saveSoberDate = () => {
-  const enteredSoberDate = document.getElementById("sober-date").value;
+  const enteredSoberDate = document.getElementById("sober-date").valueAsNumber;
   buildfire.userData.save(
     {
       soberDate: enteredSoberDate,
@@ -23,6 +35,7 @@ saveSoberDate = () => {
         return console.error(err)
       } else {
         console.log(result);
+        userSoberDate = enteredSoberDate;
         clearSoberPickerView();
       }
     });
@@ -56,19 +69,23 @@ landing = () => {
       });
       // set logged in user and check for sobriety date.
     } else {
+
       loggedInUser = user.username;
-      userDisplay.innerHTML = `${loggedInUser}`;
       console.log(today);
       buildfire.userData.get("userSoberDate", (err, result) => {
         if (err) {
           return console.error(err);
         } else if (!result.data.soberDate) {
+          console.log("No sober date");
           console.log(result);
         } else {
+          console.log("Sober Date");
           console.log(result);
           userSoberDate = result.data.soberDate;
           userSoberDateId = result.id;
+          calcConsecutiveSoberDays();
           clearSoberPickerView();
+          consecutiveSoberDisplay.innerHTML = `${consecutiveSoberDays}`;
         }
       })
     }

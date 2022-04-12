@@ -28,3 +28,29 @@
 .sober-date {
   border: 0px;
 }
+
+.main-view {
+  padding-top: 45px;
+}
+
+#consecutive-sober-box {
+  color: #fff;
+  background-color: cornflowerblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+  width: 250px;
+  margin: auto;
+  border-radius: 50%;
+}
+
+.consecutive-sober-header {
+  font-size: 1.8em;
+}
+
+#consecutive-sober-display {
+  padding-top: 25px;
+  font-size: 3em;
+}
