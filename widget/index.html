@@ -4,7 +4,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css" />
-
+  <script src="https://kit.fontawesome.com/22c6b19d19.js" crossorigin="anonymous"></script>
   <!-- JS -->
   <script src="../../../scripts/buildfire.js"></script>
 
@@ -15,20 +15,39 @@
   <!-- Sobriety Date Picker -->
   <div id="sober-picker-view" class="container-fluid sober-picker-view">
     <div class="sober-picker-box">
-      <label for="start">Select your sober date:</label>
+      <div class="sober-input-container">
+        <label for="sober-date">Select your sober date:</label>
 
-      <input type="date" id="sober-date" name="sober-date" class="sober-date">
+        <input type="date" id="sober-date" name="sober-date" class="sober-date-input">
+      </div>
       <button onclick="saveSoberDate()" class="btn btn-primary">SAVE</button>
     </div>
   </div>
+  </div>
 
   <!-- Landing View will contain daily check in -->
-  <div id="landing-view" class="container-fluid bg-primary landing-view">
+  <div id="landing-view" class="container-fluid landing-view">
     <div id="check-in-box">
-      Today was a sober day
-      <button onclick="saveCheckIn()" class="btn btn-success">Check in</button>
-      <p>I've had a recent relapse</p>
-      <button onclick="recentRelapse()" class="btn btn-danger">Relapse</button>
+      <div class="ren-container">
+        <p>Today was a sober day</p>
+        <button onclick="saveCheckIn()" class="btn btn-success">Check in</button>
+      </div>
+      <div class="ren-container">
+        <p>I've had a recent relapse</p>
+        <button onclick="recentRelapse()" class="btn btn-danger">Relapse</button>
+      </div>
+      <div class="ren-container"></div>
+    </div>
+  </div>
+
+  <!-- Relapse Messaging -->
+  <div id="relapse-view" class="container-fluid landing-view clear-relapse-view">
+    <div id="check-in-box">
+      <div class="ren-container">
+        <p>Relapse messaging.</p>
+        <button onclick="updateSoberDate()" class="btn btn-success">Continue</button>
+      </div>
+      <div class="ren-container"></div>
     </div>
   </div>
 
@@ -39,6 +58,46 @@
       <span class="consecutive-sober-header">Total Sober Days:</span>
 
       <span id="consecutive-sober-display"></span>
+    </div>
+
+    <!-- Badge container -->
+    <div id="badge-box" class="ren-container">
+      <span class="badge-display"> 30 60 90 6M 9M 1YEAR</span>
+    </div>
+
+    <!-- Total Days Icons Container-->
+    <div id="total-sober-icon-container" class="ren-container total-sober-icon-container">
+      <div id="year-icon-box" class="icon-box">
+        <span class="icon-label">Years</span>
+        <i class="fa-solid fa-medal year-star"></i>
+        <i class="fa-solid fa-medal year-star"></i>
+      </div>
+      <div id="year-icon-box" class="icon-box">
+        <span class="icon-label">Months</span>
+        <i class="fa-solid fa-star month-star"></i>
+        <i class="fa-solid fa-star month-star"></i>
+        <i class="fa-solid fa-star month-star"></i>
+      </div>
+      <div id="year-icon-box" class="icon-box">
+        <span class="icon-label">Weeks</span>
+        <i class="fa-solid fa-sun week-star"></i>
+        <i class="fa-solid fa-sun week-star"></i>
+      </div>
+      <div id="year-icon-box" class="icon-box">
+        <span class="icon-label">Days</span>
+        <i class="fa-solid fa-circle-check day-star"></i>
+        <i class="fa-solid fa-circle-check day-star"></i>
+        <i class="fa-solid fa-circle-check day-star"></i>
+        <i class="fa-solid fa-circle-check day-star"></i>
+      </div>
+    </div>
+
+    <!-- Quote Container -->
+    <div class="quote-container">
+      <span class="quote-text">Strength of mind rests in sobriety; for this keeps your reason unclouded by passion.
+
+      </span>
+      <span class="quote-attribute">- Pythagoras</span>
     </div>
 
   </div>

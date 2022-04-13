@@ -1,5 +1,7 @@
 .landing-view {
+  margin-top: 45px;
   min-height: 100vh;
+  text-align: center;
 }
 
 .clear-landing-view {
@@ -10,23 +12,35 @@
   display: none;
 }
 
+.clear-relapse-view {
+  display: none;
+}
+
 .sober-picker-view {
+  text-align: center;
   min-height: 100vh;
   padding-top: 45px;
 }
 
 .sober-picker-box {
-  border: 2px solid #000;
-  border-radius: 5px;
+  border-top: 1px solid #888;
+  border-bottom: 1px solid #888;
   padding: 10px;
   margin-top: 35px;
   margin: auto;
-  width: 80%;
+  width: 100%;
   min-height: 40%;
 }
 
-.sober-date {
+.sober-date-input {
+  background-color: lightgray;
   border: 0px;
+  padding: 1px 4px;
+  border-radius: 5px;
+}
+
+.sober-input-container {
+  margin-bottom: 8px;
 }
 
 .main-view {
@@ -44,6 +58,7 @@
   width: 250px;
   margin: auto;
   border-radius: 50%;
+  margin-bottom: 25px;
 }
 
 .consecutive-sober-header {
@@ -53,4 +68,75 @@
 #consecutive-sober-display {
   padding-top: 25px;
   font-size: 3em;
+}
+
+.badge-display {
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+#badge-box {
+  text-align: center;
+}
+
+.ren-container {
+  /* height: 50px; */
+  border-top: 1px solid #888;
+  padding: 15px 15px;
+}
+
+/* Total Sober Icons */
+.total-sober-icon-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon-box {
+  text-align: center;
+}
+
+.icon-label {
+  display: block;
+}
+
+.year-star {
+  font-size: 1.3em;
+  padding: 2px;
+  color: red;
+}
+
+.month-star {
+  font-size: 1.3em;
+  padding: 2px;
+  color: blue;
+}
+
+.week-star {
+  font-size: 1.3em;
+  padding: 2px;
+  color: green;
+  /* color: #89d6a1; */
+}
+
+.day-star {
+  font-size: 1.3em;
+  padding: 2px;
+  color: rgb(255, 200, 0);
+}
+
+/* Quote styles */
+.quote-container {
+  border-radius: 15px;
+  margin: 35px 15px 15px 15px;
+  padding: 15px 10px;
+  background-color: lightslategray;
+  color: #fff;
+}
+
+.quote-attribute {
+  padding-top: 10px;
+  text-align: right;
+  display: block;
+  font-weight: bold;
+  font-size: 1.2em;
 }

@@ -9,11 +9,14 @@ let userSoberDate;
 let userSoberDateId;
 let consecutiveSoberDays;
 
+/* *** unused likely deletable ********
+
 let year = new Date().getFullYear();
 let month = new Date().getMonth() + 1;
 let day = new Date().getDate();
 
 let today = `${year}/${month}/${day}`;
+************************************** */
 
 //Calculate consecutive sober days
 calcConsecutiveSoberDays = () => {
@@ -37,6 +40,7 @@ saveSoberDate = () => {
         console.log(result);
         userSoberDate = enteredSoberDate;
         clearSoberPickerView();
+        landing();
       }
     });
 };
@@ -53,7 +57,6 @@ recentRelapse = () => {
 
 saveCheckIn = () => {
   clearLandingView();
-  document.querySelector("#sober-date-display").innerHTML = userSoberDate;
 };
 
 // Upon arrival to plugin 
@@ -71,7 +74,6 @@ landing = () => {
     } else {
 
       loggedInUser = user.username;
-      console.log(today);
       buildfire.userData.get("userSoberDate", (err, result) => {
         if (err) {
           return console.error(err);
@@ -85,6 +87,9 @@ landing = () => {
           userSoberDateId = result.id;
           calcConsecutiveSoberDays();
           clearSoberPickerView();
+
+          // Adding during design
+          // clearLandingView();
           consecutiveSoberDisplay.innerHTML = `${consecutiveSoberDays}`;
         }
       })
