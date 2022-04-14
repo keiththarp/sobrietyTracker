@@ -1,8 +1,9 @@
 // Variables for containers
-const landingContainer = document.querySelector("#landing-view");
+const landingView = document.querySelector("#landing-view");
 const userDisplay = document.querySelector("#user-display");
 const soberPickerView = document.querySelector("#sober-picker-view")
 const consecutiveSoberDisplay = document.querySelector("#consecutive-sober-display");
+const relapseView = document.querySelector("#relapse-view");
 
 let loggedInUser;
 let userSoberDate;
@@ -24,8 +25,12 @@ calcConsecutiveSoberDays = () => {
 };
 
 // Remove views for conditional rendering
-clearSoberPickerView = () => soberPickerView.setAttribute("class", "clear-sober-picker-view");
-clearLandingView = () => landingContainer.setAttribute("class", "clear-landing-view");
+clearSoberPickerView = () => soberPickerView.setAttribute("class", "clear-view");
+clearLandingView = () => landingView.setAttribute("class", "clear-view");
+clearRelapseView = () => relapseView.setAttribute("class", "clear-view");
+
+// Open views for conditional rendering
+openSoberPicker = () => soberPickerView.setAttribute("class", "container-fluid sober-picker-view")
 
 // On click function for date picker
 saveSoberDate = () => {
@@ -40,10 +45,15 @@ saveSoberDate = () => {
         console.log(result);
         userSoberDate = enteredSoberDate;
         clearSoberPickerView();
+        clearRelapseView();
         landing();
       }
     });
 };
+
+updateSoberDate = () => {
+  openSoberPicker();
+}
 
 recentRelapse = () => {
   buildfire.userData.delete(userSoberDateId, "userSoberDate", (err, result) => {
@@ -51,12 +61,17 @@ recentRelapse = () => {
       return console.error(err)
     } else {
       console.log(result);
+      clearLandingView();
+      // openRelapseView();
     }
   })
 }
 
+updateSoberDate
+
 saveCheckIn = () => {
   clearLandingView();
+  clearRelapseView();
 };
 
 // Upon arrival to plugin 
@@ -69,6 +84,7 @@ landing = () => {
     } else if (!user) {
       buildfire.auth.login({ allowCancel: false }, (err, user) => {
         console.log(err, user);
+        landing();
       });
       // set logged in user and check for sobriety date.
     } else {

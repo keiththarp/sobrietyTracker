@@ -4,15 +4,7 @@
   text-align: center;
 }
 
-.clear-landing-view {
-  display: none;
-}
-
-.clear-sober-picker-view {
-  display: none;
-}
-
-.clear-relapse-view {
+.clear-view {
   display: none;
 }
 
