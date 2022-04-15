@@ -25,23 +25,8 @@
   </div>
   </div>
 
-  <!-- Landing View will contain daily check in -->
-  <div id="landing-view" class="container-fluid landing-view">
-    <div id="check-in-box">
-      <div class="ren-container">
-        <p>Today was a sober day</p>
-        <button onclick="saveCheckIn()" class="btn btn-success">Check in</button>
-      </div>
-      <div class="ren-container">
-        <p>I've had a recent relapse</p>
-        <button onclick="recentRelapse()" class="btn btn-danger">Relapse</button>
-      </div>
-      <div class="ren-container"></div>
-    </div>
-  </div>
-
   <!-- Relapse Messaging -->
-  <div id="relapse-view" class="container-fluid landing-view">
+  <div id="relapse-view" class="clear-view">
     <div id="check-in-box">
       <div class="ren-container">
         <p>Relapse messaging.</p>
@@ -87,12 +72,10 @@
     </div>
     <div class="ren-container"></div>
 
-    <!-- Quote Container -->
-    <div class="quote-container">
-      <span class="quote-text">Strength of mind rests in sobriety; for this keeps your reason unclouded by passion.
-
-      </span>
-      <span class="quote-attribute">- Pythagoras</span>
+    <!-- Sober days display and edit -->
+    <div class="ren-container">
+      <p>Sober since <span id="sober-date-display-box"></span></p>
+      <button onclick="recentRelapse()" class="btn btn-danger">Relapse</button>
     </div>
 
   </div>

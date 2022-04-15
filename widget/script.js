@@ -5,20 +5,13 @@ const soberPickerView = document.querySelector("#sober-picker-view")
 const consecutiveSoberDisplay = document.querySelector("#consecutive-sober-display");
 const relapseView = document.querySelector("#relapse-view");
 const iconDisplayBox = document.querySelector("#icon-display-box");
+const soberDateDisplayBox = document.querySelector("#sober-date-display-box");
 
 let loggedInUser;
 let userSoberDate;
+let UserDisplaySoberDate;
 let userSoberDateId;
 let consecutiveSoberDays;
-
-/* *** unused likely deletable ********
-
-let year = new Date().getFullYear();
-let month = new Date().getMonth() + 1;
-let day = new Date().getDate();
-
-let today = `${year}/${month}/${day}`;
-************************************** */
 
 //Calculate consecutive sober days
 calcConsecutiveSoberDays = () => {
@@ -28,18 +21,21 @@ calcConsecutiveSoberDays = () => {
 
 // Remove views for conditional rendering
 clearSoberPickerView = () => soberPickerView.setAttribute("class", "clear-view");
-clearLandingView = () => landingView.setAttribute("class", "clear-view");
 clearRelapseView = () => relapseView.setAttribute("class", "clear-view");
 
 // Open views for conditional rendering
 openSoberPicker = () => soberPickerView.setAttribute("class", "container-fluid sober-picker-view")
+openRelapseView = () => relapseView.setAttribute("class", "container-fluid landing-view")
 
 // On click function for date picker
 saveSoberDate = () => {
-  const enteredSoberDate = document.getElementById("sober-date").valueAsNumber;
+  const datePicker = document.getElementById("sober-date");
+  const enteredSoberDate = datePicker.valueAsNumber;
+  const displaySoberDate = datePicker.value;
   buildfire.userData.save(
     {
       soberDate: enteredSoberDate,
+      displaySoberDate: displaySoberDate,
     }, "userSoberDate", (err, result) => {
       if (err) {
         return console.error(err)
@@ -63,18 +59,12 @@ recentRelapse = () => {
       return console.error(err)
     } else {
       console.log(result);
-      clearLandingView();
-      // openRelapseView();
+      iconDisplayBox.innerHTML = '';
+      openRelapseView();
     }
   })
 }
 
-updateSoberDate
-
-saveCheckIn = () => {
-  clearLandingView();
-  clearRelapseView();
-};
 
 // Upon arrival to plugin 
 landing = () => {
@@ -102,13 +92,13 @@ landing = () => {
           console.log("Sober Date");
           console.log(result);
           userSoberDate = result.data.soberDate;
+          UserDisplaySoberDate = result.data.displaySoberDate;
           userSoberDateId = result.id;
           calcConsecutiveSoberDays();
           clearSoberPickerView();
 
-          // Adding during design
-          // clearLandingView();
           consecutiveSoberDisplay.innerHTML = `${consecutiveSoberDays}`;
+          soberDateDisplayBox.innerHTML = UserDisplaySoberDate;
         }
       })
     }
