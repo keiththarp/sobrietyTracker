@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .landing-view {
   margin-top: 45px;
   min-height: 100vh;
@@ -83,12 +87,42 @@
   justify-content: space-between;
 }
 
-.icon-box {
+.icon-label-box {
   text-align: center;
+  /* border: #888 1px solid; */
 }
 
 .icon-label {
   display: block;
+}
+
+#icon-display-box {
+  text-align: center;
+  padding: 0 0 10px 15px;
+}
+
+.year-star-label {
+  font-size: .8em;
+  padding: 2px;
+  color: red;
+}
+
+.month-star-label {
+  font-size: .8em;
+  padding: 2px;
+  color: blue;
+}
+
+.week-star-label {
+  font-size: .8em;
+  padding: 2px;
+  color: green;
+}
+
+.day-star-label {
+  font-size: .8em;
+  padding: 2px;
+  color: rgb(255, 200, 0);
 }
 
 .year-star {
@@ -103,11 +137,11 @@
   color: blue;
 }
 
+
 .week-star {
   font-size: 1.3em;
   padding: 2px;
   color: green;
-  /* color: #89d6a1; */
 }
 
 .day-star {
