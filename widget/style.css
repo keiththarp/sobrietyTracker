@@ -12,6 +12,7 @@
   display: none;
 }
 
+/* Sober Picker */
 .sober-picker-view {
   text-align: center;
   min-height: 100vh;
@@ -39,6 +40,12 @@
   margin-bottom: 8px;
 }
 
+/* Relapse View CSS */
+.relapse-btn-breath-space {
+  margin-right: 15px;
+}
+
+/* Main view CSS */
 .main-view {
   padding-top: 45px;
 }
@@ -76,7 +83,6 @@
 }
 
 .ren-container {
-  /* height: 50px; */
   border-top: 1px solid #888;
   padding: 15px 15px;
 }
@@ -94,6 +100,10 @@
 
 .icon-label {
   display: block;
+}
+
+.icon-tally {
+  font-weight: bold;
 }
 
 #icon-display-box {
@@ -150,19 +160,19 @@
   color: rgb(255, 200, 0);
 }
 
-/* Quote styles */
-.quote-container {
-  border-radius: 15px;
-  margin: 35px 15px 15px 15px;
-  padding: 15px 10px;
-  background-color: lightslategray;
-  color: #fff;
+.date-edit {
+  font-size: 1.2em;
+  padding-left: 10px;
+  color: rgb(20, 103, 220);
 }
 
-.quote-attribute {
-  padding-top: 10px;
-  text-align: right;
-  display: block;
-  font-weight: bold;
+.sober-since {
   font-size: 1.2em;
+  font-weight: 400;
+}
+
+.sober-since-date {
+  padding-left: 5px;
+  font-size: 1.2em;
+  font-weight: 500;
 }

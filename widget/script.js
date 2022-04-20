@@ -6,6 +6,10 @@ const consecutiveSoberDisplay = document.querySelector("#consecutive-sober-displ
 const relapseView = document.querySelector("#relapse-view");
 const iconDisplayBox = document.querySelector("#icon-display-box");
 const soberDateDisplayBox = document.querySelector("#sober-date-display-box");
+const yearsIconTally = document.querySelector("#years-icon-tally");
+const monthsIconTally = document.querySelector("#months-icon-tally");
+const weeksIconTally = document.querySelector("#weeks-icon-tally");
+const daysIconTally = document.querySelector("#days-icon-tally");
 
 let loggedInUser;
 let userSoberDate;
@@ -40,7 +44,6 @@ saveSoberDate = () => {
       if (err) {
         return console.error(err)
       } else {
-        console.log(result);
         userSoberDate = enteredSoberDate;
         clearSoberPickerView();
         clearRelapseView();
@@ -58,13 +61,11 @@ recentRelapse = () => {
     if (err) {
       return console.error(err)
     } else {
-      console.log(result);
       iconDisplayBox.innerHTML = '';
       openRelapseView();
     }
   })
 }
-
 
 // Upon arrival to plugin 
 landing = () => {
@@ -75,40 +76,37 @@ landing = () => {
       // If not - force login
     } else if (!user) {
       buildfire.auth.login({ allowCancel: false }, (err, user) => {
-        console.log(err, user);
         landing();
       });
       // set logged in user and check for sobriety date.
     } else {
-
       loggedInUser = user.username;
       buildfire.userData.get("userSoberDate", (err, result) => {
         if (err) {
           return console.error(err);
         } else if (!result.data.soberDate) {
-          console.log("No sober date");
-          console.log(result);
+          updateSoberDate();
         } else {
-          console.log("Sober Date");
-          console.log(result);
           userSoberDate = result.data.soberDate;
           UserDisplaySoberDate = result.data.displaySoberDate;
           userSoberDateId = result.id;
           calcConsecutiveSoberDays();
           clearSoberPickerView();
 
-          consecutiveSoberDisplay.innerHTML = `${consecutiveSoberDays}`;
-          soberDateDisplayBox.innerHTML = UserDisplaySoberDate;
+          const formattedDate = new Date(userSoberDate);
+
+          consecutiveSoberDisplay.innerHTML = consecutiveSoberDays;
+          soberDateDisplayBox.innerHTML = formattedDate.toLocaleDateString();
         }
       })
     }
   });
 }
 
-//This code contains the logic for the milestone icons.
-
+//Year - Month - Week - Day milestone icons logic.
 // Get the total sober days
 const iconDays = () => {
+  iconDisplayBox.innerHTML = "";
   let stars = consecutiveSoberDays;
 
   // Figuring out the year milestones is easy
@@ -117,7 +115,7 @@ const iconDays = () => {
   // How many days are left after we calculate the years
   const lessThanYear = stars % 365.25;
 
-  // Since we are not working with a strict calendar, allowing "off days"
+  // Since we are not working with a strict calendar,
   // our years and months can be figured with fractions and will level out
   // over a short course of time.
 
@@ -130,6 +128,12 @@ const iconDays = () => {
   // From there, getting the weeks and days is pretty straight forward.
   const weekMilestones = parseInt(lessThanMonth / 7);
   const dayMilestones = parseInt(lessThanMonth % 7);
+
+  // Set our labels display
+  yearsIconTally.innerHTML = yearMilestones ? yearMilestones : "";
+  monthsIconTally.innerHTML = monthMilestones ? monthMilestones : "";
+  weeksIconTally.innerHTML = weekMilestones ? weekMilestones : "";
+  daysIconTally.innerHTML = dayMilestones ? dayMilestones : "";
 
   //Now we stick our icon variable in an array to loop through and create our icon display
   const milestonesArray = [

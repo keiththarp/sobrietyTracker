@@ -23,7 +23,6 @@
       <button onclick="saveSoberDate()" class="btn btn-primary">SAVE</button>
     </div>
   </div>
-  </div>
 
   <!-- Relapse Messaging -->
   <div id="relapse-view" class="clear-view">
@@ -32,7 +31,8 @@
         <p>Relapse messaging.</p>
         <p>Relapse is a part of recover, there's no shame here.</p>
         <p>Let's continue with entering a new sober date!</p>
-        <button onclick="updateSoberDate()" class="btn btn-success">Continue</button>
+        <button onclick="clearRelapseView()" class="btn btn-primary relapse-btn-breath-space">&larr; Go Back</button>
+        <button onclick="updateSoberDate()" class="btn btn-success">Continue &rarr;</button>
       </div>
       <div class="ren-container"></div>
     </div>
@@ -55,27 +55,39 @@
     <!-- Total Days Icons Container-->
     <div id="total-sober-icon-container" class="ren-container total-sober-icon-container">
       <div class="icon-label-box">
-        <span class="icon-label"><i class="fa-solid fa-medal year-star-label"></i>Years</span>
+        <span class="icon-label"><i class="fa-solid fa-medal year-star-label"></i><span id="years-icon-tally"
+            class="icon-tally"></span>
+          Years</span>
       </div>
       <div class="icon-label-box">
-        <span class="icon-label"><i class="fa-solid fa-star month-star-label"></i>Months</span>
+        <span class="icon-label"><i class="fa-solid fa-star month-star-label"></i><span id="months-icon-tally"
+            class="icon-tally"></span>
+          Months</span>
       </div>
       <div class="icon-label-box">
-        <span class="icon-label"><i class="fa-solid fa-sun week-star-label"></i>Weeks</span>
+        <span class="icon-label"><i class="fa-solid fa-sun week-star-label"></i><span id="weeks-icon-tally"
+            class="icon-tally"></span>
+          Weeks</span>
       </div>
       <div class="icon-label-box">
-        <span class="icon-label"><i class="fa-solid fa-circle-check day-star-label"></i>Days</span>
+        <span class="icon-label"><i class="fa-solid fa-circle-check day-star-label"></i><span id="days-icon-tally"
+            class="icon-tally"></span> Days</span>
       </div>
 
     </div>
     <div id="icon-display-box">
     </div>
-    <div class="ren-container"></div>
+
+    <!-- Cash saved display and edit -->
+    <div class="ren-container text-center">
+      <p class="sober-since">Money Saved: <span id="cash-saved-display-box" class="sober-since-date"></span> <i
+          onclick="openRelapseView()" class="fa-regular fa-pen-to-square date-edit"></i></p>
+    </div>
 
     <!-- Sober days display and edit -->
-    <div class="ren-container">
-      <p>Sober since <span id="sober-date-display-box"></span></p>
-      <button onclick="recentRelapse()" class="btn btn-danger">Relapse</button>
+    <div class="ren-container text-center">
+      <p class="sober-since">Sober since: <span id="sober-date-display-box" class="sober-since-date"></span> <i
+          onclick="openRelapseView()" class="fa-regular fa-pen-to-square date-edit"></i></p>
     </div>
 
   </div>
