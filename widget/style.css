@@ -78,6 +78,11 @@
   font-weight: bold;
 }
 
+.badge-display img {
+  height: 30px;
+  margin: 0 3px;
+}
+
 #badge-box {
   text-align: center;
 }

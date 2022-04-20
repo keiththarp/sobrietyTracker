@@ -10,6 +10,7 @@ const yearsIconTally = document.querySelector("#years-icon-tally");
 const monthsIconTally = document.querySelector("#months-icon-tally");
 const weeksIconTally = document.querySelector("#weeks-icon-tally");
 const daysIconTally = document.querySelector("#days-icon-tally");
+const badgeDisplay = document.querySelector("#badge-display");
 
 let loggedInUser;
 let userSoberDate;
@@ -103,7 +104,7 @@ landing = () => {
   });
 }
 
-//Year - Month - Week - Day milestone icons logic.
+//Year - Month - Week - Day milestone icons & badge logic.
 // Get the total sober days
 const iconDays = () => {
   iconDisplayBox.innerHTML = "";
@@ -129,7 +130,44 @@ const iconDays = () => {
   const weekMilestones = parseInt(lessThanMonth / 7);
   const dayMilestones = parseInt(lessThanMonth % 7);
 
-  // Set our labels display
+  // Badge logic
+  if (consecutiveSoberDays >= 10) {
+    const tenDayImg = document.createElement('img');
+    tenDayImg.src = "../widget/img/badges/10days.png";
+    badgeDisplay.appendChild(tenDayImg);
+  }
+  if (consecutiveSoberDays >= 30) {
+    const thirtyDayImg = document.createElement('img');
+    thirtyDayImg.src = "../widget/img/badges/30days.png";
+    badgeDisplay.appendChild(thirtyDayImg);
+  }
+  if (consecutiveSoberDays >= 60) {
+    const sixtyDayImg = document.createElement('img');
+    sixtyDayImg.src = "../widget/img/badges/60days.png";
+    badgeDisplay.appendChild(sixtyDayImg);
+  }
+  if (consecutiveSoberDays >= 90) {
+    const ninetyDayImg = document.createElement('img');
+    ninetyDayImg.src = "../widget/img/badges/90days.png";
+    badgeDisplay.appendChild(ninetyDayImg);
+  }
+  if (consecutiveSoberDays >= 182) {
+    const sixMoImg = document.createElement('img');
+    sixMoImg.src = "../widget/img/badges/6month.png";
+    badgeDisplay.appendChild(sixMoImg);
+  }
+  if (consecutiveSoberDays >= 274) {
+    const nineMoImg = document.createElement('img');
+    nineMoImg.src = "../widget/img/badges/9month.png";
+    badgeDisplay.appendChild(nineMoImg);
+  }
+  if (yearMilestones) {
+    const yearImg = document.createElement('img');
+    yearImg.src = "../widget/img/badges/1year.png";
+    badgeDisplay.appendChild(yearImg);
+  }
+
+  // Set our icons labels display
   yearsIconTally.innerHTML = yearMilestones ? yearMilestones : "";
   monthsIconTally.innerHTML = monthMilestones ? monthMilestones : "";
   weeksIconTally.innerHTML = weekMilestones ? weekMilestones : "";
