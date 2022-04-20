@@ -45,14 +45,28 @@
   margin-right: 15px;
 }
 
+.app-view {
+  display: block;
+  width: 100vw;
+}
+
 /* Main view CSS */
 .main-view {
-  padding-top: 45px;
+  display: flex;
+  flex-direction: column;
+  background-image: url("./img/background.jpg");
+  background-repeat: no-repeat;
+  height: 100vh;
+  background-size: cover;
+  background-color: #cccccc;
+  /* padding-top: 25px; */
+  color: #fff;
 }
 
 #consecutive-sober-box {
+  align-self: flex-start;
   color: #fff;
-  background-color: cornflowerblue;
+  background-color: #2b48748c;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -61,7 +75,12 @@
   width: 250px;
   margin: auto;
   border-radius: 50%;
-  margin-bottom: 25px;
+  /* margin-bottom: 45px; */
+}
+
+.lower-content-container {
+  align-self: flex-end;
+  width: 100vw;
 }
 
 .consecutive-sober-header {
@@ -71,11 +90,6 @@
 #consecutive-sober-display {
   padding-top: 25px;
   font-size: 3em;
-}
-
-.badge-display {
-  font-size: 1.8em;
-  font-weight: bold;
 }
 
 .badge-display img {
@@ -88,6 +102,7 @@
 }
 
 .ren-container {
+  background-color: #0a1f2c70;
   border-top: 1px solid #888;
   padding: 15px 15px;
 }
@@ -112,6 +127,7 @@
 }
 
 #icon-display-box {
+  background-color: #0a1f2c70;
   text-align: center;
   padding: 0 0 10px 15px;
 }

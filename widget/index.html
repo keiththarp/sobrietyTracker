@@ -38,57 +38,67 @@
     </div>
   </div>
 
-  <!-- Main View will contain tracker -->
-  <div id="main-view" class="main-view">
-    <!-- Top portion contains continuous days sober-->
-    <div id="consecutive-sober-box" class="">
-      <span class="consecutive-sober-header">Total Sober Days:</span>
+  <!-- App view to use for conditional rendering -->
+  <div class="app-view">
 
-      <span id="consecutive-sober-display"></span>
-    </div>
+    <!-- Main View will contain tracker -->
+    <div id="main-view" class="main-view">
+      <!-- Top portion contains continuous days sober-->
+      <div id="consecutive-sober-box" class="">
+        <span class="consecutive-sober-header">Total Sober Days:</span>
 
-    <!-- Badge container -->
-    <div id="badge-box" class="ren-container">
-      <div id="badge-display" class="badge-display">
-      </div>
-    </div>
-
-    <!-- Total Days Icons Container-->
-    <div id="total-sober-icon-container" class="ren-container total-sober-icon-container">
-      <div class="icon-label-box">
-        <span class="icon-label"><i class="fa-solid fa-medal year-star-label"></i><span id="years-icon-tally"
-            class="icon-tally"></span>
-          Years</span>
-      </div>
-      <div class="icon-label-box">
-        <span class="icon-label"><i class="fa-solid fa-star month-star-label"></i><span id="months-icon-tally"
-            class="icon-tally"></span>
-          Months</span>
-      </div>
-      <div class="icon-label-box">
-        <span class="icon-label"><i class="fa-solid fa-sun week-star-label"></i><span id="weeks-icon-tally"
-            class="icon-tally"></span>
-          Weeks</span>
-      </div>
-      <div class="icon-label-box">
-        <span class="icon-label"><i class="fa-solid fa-circle-check day-star-label"></i><span id="days-icon-tally"
-            class="icon-tally"></span> Days</span>
+        <span id="consecutive-sober-display"></span>
       </div>
 
-    </div>
-    <div id="icon-display-box">
-    </div>
+      <!-- Lower content container -->
+      <div class="lower-content-container">
 
-    <!-- Cash saved display and edit -->
-    <div class="ren-container text-center">
-      <p class="sober-since">Money Saved: <span id="cash-saved-display-box" class="sober-since-date"></span> <i
-          onclick="openRelapseView()" class="fa-regular fa-pen-to-square date-edit"></i></p>
-    </div>
+        <!-- Badge container -->
+        <div id="badge-box" class="ren-container">
+          <div id="badge-display" class="badge-display">
+          </div>
+        </div>
 
-    <!-- Sober days display and edit -->
-    <div class="ren-container text-center">
-      <p class="sober-since">Sober since: <span id="sober-date-display-box" class="sober-since-date"></span> <i
-          onclick="openRelapseView()" class="fa-regular fa-pen-to-square date-edit"></i></p>
+        <!-- Total Days Icons Container-->
+        <div id="total-sober-icon-container" class="ren-container total-sober-icon-container">
+          <div class="icon-label-box">
+            <span class="icon-label"><i class="fa-solid fa-medal year-star-label"></i><span id="years-icon-tally"
+                class="icon-tally"></span>
+              Years</span>
+          </div>
+          <div class="icon-label-box">
+            <span class="icon-label"><i class="fa-solid fa-star month-star-label"></i><span id="months-icon-tally"
+                class="icon-tally"></span>
+              Months</span>
+          </div>
+          <div class="icon-label-box">
+            <span class="icon-label"><i class="fa-solid fa-sun week-star-label"></i><span id="weeks-icon-tally"
+                class="icon-tally"></span>
+              Weeks</span>
+          </div>
+          <div class="icon-label-box">
+            <span class="icon-label"><i class="fa-solid fa-circle-check day-star-label"></i><span id="days-icon-tally"
+                class="icon-tally"></span> Days</span>
+          </div>
+
+        </div>
+        <div id="icon-display-box">
+        </div>
+
+        <!-- Cash saved display and edit -->
+        <div class="ren-container text-center">
+          <p class="sober-since">Money Saved: <span id="cash-saved-display-box" class="sober-since-date"></span> <i
+              onclick="openRelapseView()" class="fa-regular fa-pen-to-square date-edit"></i></p>
+        </div>
+
+        <!-- Sober days display and edit -->
+        <div class="ren-container text-center">
+          <p class="sober-since">Sober since: <span id="sober-date-display-box" class="sober-since-date"></span> <i
+              onclick="openRelapseView()" class="fa-regular fa-pen-to-square date-edit"></i></p>
+        </div>
+
+      </div>
+
     </div>
 
   </div>

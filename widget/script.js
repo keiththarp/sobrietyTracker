@@ -1,5 +1,5 @@
 // Variables for containers
-const landingView = document.querySelector("#landing-view");
+const appView = document.querySelector(".app-view");
 const userDisplay = document.querySelector("#user-display");
 const soberPickerView = document.querySelector("#sober-picker-view")
 const consecutiveSoberDisplay = document.querySelector("#consecutive-sober-display");
@@ -25,12 +25,24 @@ calcConsecutiveSoberDays = () => {
 };
 
 // Remove views for conditional rendering
-clearSoberPickerView = () => soberPickerView.setAttribute("class", "clear-view");
-clearRelapseView = () => relapseView.setAttribute("class", "clear-view");
+clearSoberPickerView = () => {
+  soberPickerView.setAttribute("class", "clear-view");
+  appView.setAttribute("class", "app-view");
+}
+clearRelapseView = () => {
+  relapseView.setAttribute("class", "clear-view");
+  appView.setAttribute("class", "app-view");
+}
 
 // Open views for conditional rendering
-openSoberPicker = () => soberPickerView.setAttribute("class", "container-fluid sober-picker-view")
-openRelapseView = () => relapseView.setAttribute("class", "container-fluid landing-view")
+openSoberPicker = () => {
+  soberPickerView.setAttribute("class", "container-fluid sober-picker-view")
+  appView.setAttribute("class", "clear-view");
+};
+openRelapseView = () => {
+  relapseView.setAttribute("class", "container-fluid landing-view")
+  appView.setAttribute("class", "clear-view");
+}
 
 // On click function for date picker
 saveSoberDate = () => {
@@ -46,6 +58,8 @@ saveSoberDate = () => {
         return console.error(err)
       } else {
         userSoberDate = enteredSoberDate;
+        console.log(enteredSoberDate);
+        console.log(displaySoberDate);
         clearSoberPickerView();
         clearRelapseView();
         landing();
@@ -94,7 +108,9 @@ landing = () => {
           calcConsecutiveSoberDays();
           clearSoberPickerView();
 
-          const formattedDate = new Date(userSoberDate);
+          const formattedDate = new Date(userSoberDate + 86400000);
+          console.log(userSoberDate);
+          console.log(formattedDate);
 
           consecutiveSoberDisplay.innerHTML = consecutiveSoberDays;
           soberDateDisplayBox.innerHTML = formattedDate.toLocaleDateString();
@@ -108,6 +124,7 @@ landing = () => {
 // Get the total sober days
 const iconDays = () => {
   iconDisplayBox.innerHTML = "";
+  badgeDisplay.innerHTML = "";
   let stars = consecutiveSoberDays;
 
   // Figuring out the year milestones is easy
