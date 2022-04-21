@@ -11,12 +11,14 @@ const monthsIconTally = document.querySelector("#months-icon-tally");
 const weeksIconTally = document.querySelector("#weeks-icon-tally");
 const daysIconTally = document.querySelector("#days-icon-tally");
 const badgeDisplay = document.querySelector("#badge-display");
+const badgeBox = document.querySelector("#badge-box");
 
 let loggedInUser;
 let userSoberDate;
 let UserDisplaySoberDate;
 let userSoberDateId;
 let consecutiveSoberDays;
+let userAvgExpense;
 
 //Calculate consecutive sober days
 calcConsecutiveSoberDays = () => {
@@ -40,19 +42,22 @@ openSoberPicker = () => {
   appView.setAttribute("class", "clear-view");
 };
 openRelapseView = () => {
-  relapseView.setAttribute("class", "container-fluid landing-view")
+  relapseView.setAttribute("class", "container-fluid sober-picker-view")
   appView.setAttribute("class", "clear-view");
 }
 
 // On click function for date picker
 saveSoberDate = () => {
   const datePicker = document.getElementById("sober-date");
+  const expenseInput = document.getElementById("expense-input");
   const enteredSoberDate = datePicker.valueAsNumber;
   const displaySoberDate = datePicker.value;
+  const avgExpense = expenseInput.value;
   buildfire.userData.save(
     {
       soberDate: enteredSoberDate,
       displaySoberDate: displaySoberDate,
+      avgExpense: avgExpense,
     }, "userSoberDate", (err, result) => {
       if (err) {
         return console.error(err)
@@ -103,6 +108,7 @@ landing = () => {
           userSoberDate = result.data.soberDate;
           UserDisplaySoberDate = result.data.displaySoberDate;
           userSoberDateId = result.id;
+          userAvgExpense = result.data.avgExpense;
           calcConsecutiveSoberDays();
           clearSoberPickerView();
 
@@ -144,7 +150,9 @@ const iconDays = () => {
   const dayMilestones = parseInt(lessThanMonth % 7);
 
   // Badge logic
+  if (consecutiveSoberDays < 10) badgeBox.setAttribute("class", "clear-view");
   if (consecutiveSoberDays >= 10) {
+    badgeBox.setAttribute("Class", "ren-container badge-box");
     const tenDayImg = document.createElement('img');
     tenDayImg.src = "../widget/img/badges/10days.png";
     badgeDisplay.appendChild(tenDayImg);
