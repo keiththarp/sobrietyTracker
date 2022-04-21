@@ -1,19 +1,21 @@
 // Variables for containers
 const appView = document.querySelector(".app-view");
-const userDisplay = document.querySelector("#user-display");
-const soberPickerView = document.querySelector("#sober-picker-view")
-const consecutiveSoberDisplay = document.querySelector("#consecutive-sober-display");
-const relapseView = document.querySelector("#relapse-view");
-const iconDisplayBox = document.querySelector("#icon-display-box");
-const soberDateDisplayBox = document.querySelector("#sober-date-display-box");
-const yearsIconTally = document.querySelector("#years-icon-tally");
-const monthsIconTally = document.querySelector("#months-icon-tally");
-const weeksIconTally = document.querySelector("#weeks-icon-tally");
-const daysIconTally = document.querySelector("#days-icon-tally");
-const badgeDisplay = document.querySelector("#badge-display");
 const badgeBox = document.querySelector("#badge-box");
+const badgeDisplay = document.querySelector("#badge-display");
 const cashSavedDiv = document.querySelector("#cash-saved-div");
+const daysIconTally = document.querySelector("#days-icon-tally");
+const yearsIconTally = document.querySelector("#years-icon-tally");
+const weeksIconTally = document.querySelector("#weeks-icon-tally");
+const iconDisplayBox = document.querySelector("#icon-display-box");
+const soberPickerView = document.querySelector("#sober-picker-view");
+const monthsIconTally = document.querySelector("#months-icon-tally");
 const cashSavedDisplay = document.querySelector("#cash-saved-display-box");
+const soberDateDisplayBox = document.querySelector("#sober-date-display-box");
+const consecutiveSoberDisplay = document.querySelector("#consecutive-sober-display");
+
+const datePicker = document.getElementById("sober-date");
+const relapseView = document.querySelector("#relapse-view");
+const expenseInput = document.getElementById("expense-input");
 
 // Variables for state 
 let loggedInUser;
@@ -41,8 +43,9 @@ clearRelapseView = () => {
 
 // Open views for conditional rendering
 openSoberPicker = () => {
-  soberPickerView.setAttribute("class", "container-fluid sober-picker-view")
+  soberPickerView.setAttribute("class", "container-fluid sober-picker-view");
   appView.setAttribute("class", "clear-view");
+  expenseInput.value = userAvgExpense || "";
 };
 openRelapseView = () => {
   relapseView.setAttribute("class", "container-fluid sober-picker-view")
@@ -51,8 +54,6 @@ openRelapseView = () => {
 
 // On click function for date picker
 saveSoberDate = () => {
-  const datePicker = document.getElementById("sober-date");
-  const expenseInput = document.getElementById("expense-input");
   const enteredSoberDate = datePicker.valueAsNumber;
   const displaySoberDate = datePicker.value;
   const avgExpense = expenseInput.value;
@@ -80,7 +81,7 @@ updateSoberDate = () => {
 recentRelapse = () => {
   buildfire.userData.delete(userSoberDateId, "userSoberDate", (err, result) => {
     if (err) {
-      return console.error(err)
+      return console.error(err);
     } else {
       iconDisplayBox.innerHTML = '';
       openRelapseView();
