@@ -58,8 +58,6 @@ saveSoberDate = () => {
         return console.error(err)
       } else {
         userSoberDate = enteredSoberDate;
-        console.log(enteredSoberDate);
-        console.log(displaySoberDate);
         clearSoberPickerView();
         clearRelapseView();
         landing();
@@ -109,8 +107,6 @@ landing = () => {
           clearSoberPickerView();
 
           const formattedDate = new Date(userSoberDate + 86400000);
-          console.log(userSoberDate);
-          console.log(formattedDate);
 
           consecutiveSoberDisplay.innerHTML = consecutiveSoberDays;
           soberDateDisplayBox.innerHTML = formattedDate.toLocaleDateString();
