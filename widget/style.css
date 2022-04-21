@@ -13,6 +13,10 @@ body {
   display: none;
 }
 
+.show-view {
+  display: block;
+}
+
 /* Sober Picker */
 .sober-picker-view {
   display: flex;
@@ -64,6 +68,7 @@ body {
 
 #expense-input {
   margin-bottom: 25px;
+  color: #000;
 }
 
 /* Relapse View CSS */

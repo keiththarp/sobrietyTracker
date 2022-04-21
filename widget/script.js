@@ -12,7 +12,10 @@ const weeksIconTally = document.querySelector("#weeks-icon-tally");
 const daysIconTally = document.querySelector("#days-icon-tally");
 const badgeDisplay = document.querySelector("#badge-display");
 const badgeBox = document.querySelector("#badge-box");
+const cashSavedDiv = document.querySelector("#cash-saved-div");
+const cashSavedDisplay = document.querySelector("#cash-saved-display-box");
 
+// Variables for state 
 let loggedInUser;
 let userSoberDate;
 let UserDisplaySoberDate;
@@ -105,6 +108,7 @@ landing = () => {
         } else if (!result.data.soberDate) {
           updateSoberDate();
         } else {
+          console.log(result);
           userSoberDate = result.data.soberDate;
           UserDisplaySoberDate = result.data.displaySoberDate;
           userSoberDateId = result.id;
@@ -113,7 +117,11 @@ landing = () => {
           clearSoberPickerView();
 
           const formattedDate = new Date(userSoberDate + 86400000);
-
+          if (userAvgExpense) {
+            cashSavedDisplay.innerHTML = userAvgExpense * consecutiveSoberDays;
+          } else {
+            cashSavedDiv.setAttribute("class", "clear-view");
+          }
           consecutiveSoberDisplay.innerHTML = consecutiveSoberDays;
           soberDateDisplayBox.innerHTML = formattedDate.toLocaleDateString();
         }
