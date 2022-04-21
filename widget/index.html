@@ -13,29 +13,33 @@
 <body>
 
   <!-- Sobriety Date Picker -->
-  <div id="sober-picker-view" class="container-fluid sober-picker-view">
+  <div id="sober-picker-view" class="sober-picker-view">
     <div class="sober-picker-box">
       <div class="sober-input-container">
-        <label for="sober-date">Select your sober date:</label>
-
-        <input type="date" id="sober-date" name="sober-date" class="sober-date-input">
+        <label for="sober-date" class="sober-select-label">Select your sober date:</label>
       </div>
-      <button onclick="saveSoberDate()" class="btn btn-primary">SAVE</button>
+      <input type="date" id="sober-date" name="sober-date" class="sober-date-input">
+      <div class="cash-savings-label">
+        <label for="cash-savings" class="sober-select-label">Past average weekly expense?</label>
+      </div>
+      <div>
+        <span class="expense-dollar">$ </span><input type="text" id="expense-input" name="expense-input">
+      </div>
+      <button onclick="saveSoberDate()" class="btn btn-success sober-save-button">SAVE</button>
     </div>
   </div>
 
   <!-- Relapse Messaging -->
   <div id="relapse-view" class="clear-view">
-    <div id="check-in-box">
-      <div class="ren-container">
-        <p>Relapse messaging.</p>
-        <p>Relapse is a part of recover, there's no shame here.</p>
-        <p>Let's continue with entering a new sober date!</p>
-        <button onclick="clearRelapseView()" class="btn btn-primary relapse-btn-breath-space">&larr; Go Back</button>
-        <button onclick="updateSoberDate()" class="btn btn-success">Continue &rarr;</button>
-      </div>
-      <div class="ren-container"></div>
+
+    <div class="sober-picker-box">
+      <p>Relapse messaging.</p>
+      <p>Relapse is a part of recover, there's no shame here.</p>
+      <p>Let's continue with entering a new sober date!</p>
+      <button onclick="clearRelapseView()" class="btn btn-primary relapse-btn-breath-space">&larr; Go Back</button>
+      <button onclick="updateSoberDate()" class="btn btn-success">Continue &rarr;</button>
     </div>
+
   </div>
 
   <!-- App view to use for conditional rendering -->
@@ -54,7 +58,7 @@
       <div class="lower-content-container">
 
         <!-- Badge container -->
-        <div id="badge-box" class="ren-container">
+        <div id="badge-box" class="ren-container badge-box">
           <div id="badge-display" class="badge-display">
           </div>
         </div>
@@ -86,7 +90,7 @@
         </div>
 
         <!-- Cash saved display and edit -->
-        <div class="ren-container text-center">
+        <div class="ren-container text-center bottom-box">
           <p class="sober-since">Money Saved: <span id="cash-saved-display-box" class="sober-since-date"></span> <i
               onclick="openRelapseView()" class="fa-regular fa-pen-to-square date-edit"></i></p>
 
