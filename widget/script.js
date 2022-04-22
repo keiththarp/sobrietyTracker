@@ -38,7 +38,6 @@ clearSoberPickerView = () => {
 }
 clearRelapseView = () => {
   relapseView.setAttribute("class", "clear-view");
-  appView.setAttribute("class", "app-view");
 }
 
 // Open views for conditional rendering
@@ -51,8 +50,11 @@ openRelapseView = () => {
   relapseView.setAttribute("class", "container-fluid sober-picker-view")
   appView.setAttribute("class", "clear-view");
 }
+openAppView = () => {
+  appView.setAttribute("class", "app-view");
+};
 
-// On click function for date picker
+// onclick events
 saveSoberDate = () => {
   const enteredSoberDate = datePicker.valueAsNumber;
   const displaySoberDate = datePicker.value;
@@ -76,7 +78,8 @@ saveSoberDate = () => {
 
 updateSoberDate = () => {
   openSoberPicker();
-}
+  clearRelapseView();
+};
 
 recentRelapse = () => {
   buildfire.userData.delete(userSoberDateId, "userSoberDate", (err, result) => {
@@ -87,7 +90,12 @@ recentRelapse = () => {
       openRelapseView();
     }
   })
-}
+};
+
+goBack = () => {
+  clearRelapseView();
+  openAppView();
+};
 
 // Upon arrival to plugin 
 landing = () => {
@@ -119,7 +127,15 @@ landing = () => {
 
           const formattedDate = new Date(userSoberDate + 86400000);
           if (userAvgExpense) {
-            cashSavedDisplay.innerHTML = userAvgExpense * consecutiveSoberDays;
+            // Create our number formatter.
+            var formatter = new Intl.NumberFormat('en-US', {
+              style: 'currency',
+              currency: 'USD',
+              maximumFractionDigits: 0,
+            });
+
+            // formatter.format(2500); 
+            cashSavedDisplay.innerHTML = formatter.format(userAvgExpense * consecutiveSoberDays / 7);
           } else {
             cashSavedDiv.setAttribute("class", "clear-view");
           }
