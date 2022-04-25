@@ -7,6 +7,10 @@ const daysIconTally = document.querySelector("#days-icon-tally");
 const weeksIconTally = document.querySelector("#weeks-icon-tally");
 const monthsIconTally = document.querySelector("#months-icon-tally");
 const yearsIconTally = document.querySelector("#years-icon-tally");
+const yearIconLabel = document.querySelector("#year-icon-label");
+const monthIconLabel = document.querySelector("#month-icon-label");
+const weekIconLabel = document.querySelector("#week-icon-label");
+const dayIconLabel = document.querySelector("#day-icon-label");
 const iconDisplayBox = document.querySelector("#icon-display-box");
 const soberPickerView = document.querySelector("#sober-picker-view");
 const cashSavedDisplay = document.querySelector("#cash-saved-display-box");
@@ -99,6 +103,10 @@ goBack = () => {
 
 // Upon arrival to plugin 
 landing = () => {
+
+  // Clear displays
+  consecutiveSoberDisplay.innerHTML = "";
+  soberDateDisplayBox.innerHTML = "";
 
   // Is current user logged in?
   buildfire.auth.getCurrentUser((err, user) => {
@@ -213,6 +221,28 @@ const iconDays = () => {
   }
 
   // Set our icons labels display
+  // Singular or plural label
+  if (yearMilestones == 1) {
+    yearIconLabel.innerHTML = "Year"
+  } else {
+    yearIconLabel.innerHTML = "Years"
+  }
+  if (monthMilestones == 1) {
+    monthIconLabel.innerHTML = "Month"
+  } else {
+    monthIconLabel.innerHTML = "Months"
+  }
+  if (weekMilestones == 1) {
+    weekIconLabel.innerHTML = "Week"
+  } else {
+    weekIconLabel.innerHTML = "Weeks"
+  }
+  if (dayMilestones == 1) {
+    dayIconLabel.innerHTML = "Day"
+  } else {
+    dayIconLabel.innerHTML = "Days"
+  }
+  // Whether to add number or blank
   yearsIconTally.innerHTML = yearMilestones ? yearMilestones : "";
   monthsIconTally.innerHTML = monthMilestones ? monthMilestones : "";
   weeksIconTally.innerHTML = weekMilestones ? weekMilestones : "";

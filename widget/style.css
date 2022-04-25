@@ -24,10 +24,11 @@ body {
   align-items: flex-end;
   height: 100vh;
   color: #fff;
-  padding-bottom: 15px;
+  padding-bottom: 35px;
 }
 
 .sober-picker-box {
+  font-size: 1.2em;
   text-align: center;
   background-color: #51444d97;
   border-top: 1px solid #888;
@@ -111,7 +112,7 @@ body {
 .lower-content-container {
   align-self: flex-end;
   width: 100vw;
-  padding: 0 10px 15px 10px;
+  padding: 0 10px 35px 10px;
 }
 
 .consecutive-sober-header {
@@ -154,10 +155,12 @@ body {
 }
 
 .icon-label {
+  font-size: 1.1em;
   display: block;
 }
 
 .icon-tally {
+  font-size: 1.1em;
   font-weight: bold;
 }
 
@@ -168,67 +171,67 @@ body {
 }
 
 .year-star-label {
-  font-size: .8em;
+  font-size: .9em;
   padding: 2px;
   color: red;
 }
 
 .month-star-label {
-  font-size: .8em;
+  font-size: .9em;
   padding: 2px;
   color: blue;
 }
 
 .week-star-label {
-  font-size: .8em;
+  font-size: .9em;
   padding: 2px;
   color: green;
 }
 
 .day-star-label {
-  font-size: .8em;
+  font-size: .9em;
   padding: 2px;
   color: rgb(255, 200, 0);
 }
 
 .year-star {
-  font-size: 1.3em;
+  font-size: 1.4em;
   padding: 2px;
   color: red;
 }
 
 .month-star {
-  font-size: 1.3em;
+  font-size: 1.4em;
   padding: 2px;
   color: blue;
 }
 
 
 .week-star {
-  font-size: 1.3em;
+  font-size: 1.4em;
   padding: 2px;
   color: green;
 }
 
 .day-star {
-  font-size: 1.3em;
+  font-size: 1.4em;
   padding: 2px;
   color: rgb(255, 200, 0);
 }
 
 .date-edit {
-  font-size: 1em;
-  padding-left: 10px;
+  font-size: 1.2em;
+  padding-left: 20px;
   color: rgb(20, 103, 220);
 }
 
 .sober-since {
-  font-size: 1.2em;
+  font-size: 1.3em;
   font-weight: 400;
 }
 
 .sober-since-date {
   padding-left: 5px;
-  font-size: 1.2em;
+  font-size: 1.4em;
   font-weight: 500;
 }
