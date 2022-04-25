@@ -20,7 +20,6 @@ const expenseInput = document.getElementById("expense-input");
 // Variables for state 
 let loggedInUser;
 let userSoberDate;
-let UserDisplaySoberDate;
 let userSoberDateId;
 let consecutiveSoberDays;
 let userAvgExpense;
@@ -59,6 +58,7 @@ saveSoberDate = () => {
   const enteredSoberDate = datePicker.valueAsNumber;
   const displaySoberDate = datePicker.value;
   const avgExpense = expenseInput.value;
+
   buildfire.userData.save(
     {
       soberDate: enteredSoberDate,
@@ -99,6 +99,7 @@ goBack = () => {
 
 // Upon arrival to plugin 
 landing = () => {
+
   // Is current user logged in?
   buildfire.auth.getCurrentUser((err, user) => {
     if (err) {
@@ -119,7 +120,6 @@ landing = () => {
         } else {
           console.log(result);
           userSoberDate = result.data.soberDate;
-          UserDisplaySoberDate = result.data.displaySoberDate;
           userSoberDateId = result.id;
           userAvgExpense = result.data.avgExpense;
           calcConsecutiveSoberDays();
