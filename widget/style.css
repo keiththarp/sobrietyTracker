@@ -57,8 +57,12 @@ body {
   width: 100px;
 }
 
-.cash-savings-label {
+.cash-savings-label-box {
   margin-top: 25px;
+}
+
+.cash-savings-label {
+  font-size: 1.1em;
 }
 
 .expense-dollar {

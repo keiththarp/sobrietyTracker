@@ -4,11 +4,11 @@ const badgeBox = document.querySelector("#badge-box");
 const badgeDisplay = document.querySelector("#badge-display");
 const cashSavedDiv = document.querySelector("#cash-saved-div");
 const daysIconTally = document.querySelector("#days-icon-tally");
-const yearsIconTally = document.querySelector("#years-icon-tally");
 const weeksIconTally = document.querySelector("#weeks-icon-tally");
+const monthsIconTally = document.querySelector("#months-icon-tally");
+const yearsIconTally = document.querySelector("#years-icon-tally");
 const iconDisplayBox = document.querySelector("#icon-display-box");
 const soberPickerView = document.querySelector("#sober-picker-view");
-const monthsIconTally = document.querySelector("#months-icon-tally");
 const cashSavedDisplay = document.querySelector("#cash-saved-display-box");
 const soberDateDisplayBox = document.querySelector("#sober-date-display-box");
 const consecutiveSoberDisplay = document.querySelector("#consecutive-sober-display");
@@ -118,7 +118,6 @@ landing = () => {
         } else if (!result.data.soberDate) {
           updateSoberDate();
         } else {
-          console.log(result);
           userSoberDate = result.data.soberDate;
           userSoberDateId = result.id;
           userAvgExpense = result.data.avgExpense;
