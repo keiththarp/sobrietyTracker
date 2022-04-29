@@ -186,37 +186,37 @@ const iconDays = () => {
   if (consecutiveSoberDays >= 10) {
     badgeBox.setAttribute("Class", "ren-container badge-box");
     const tenDayImg = document.createElement('img');
-    tenDayImg.src = "../widget/img/badges/10days.png";
+    tenDayImg.src = "./img/badges/10days.png";
     badgeDisplay.appendChild(tenDayImg);
   }
   if (consecutiveSoberDays >= 30) {
     const thirtyDayImg = document.createElement('img');
-    thirtyDayImg.src = "../widget/img/badges/30days.png";
+    thirtyDayImg.src = "./img/badges/30days.png";
     badgeDisplay.appendChild(thirtyDayImg);
   }
   if (consecutiveSoberDays >= 60) {
     const sixtyDayImg = document.createElement('img');
-    sixtyDayImg.src = "../widget/img/badges/60days.png";
+    sixtyDayImg.src = "./img/badges/60days.png";
     badgeDisplay.appendChild(sixtyDayImg);
   }
   if (consecutiveSoberDays >= 90) {
     const ninetyDayImg = document.createElement('img');
-    ninetyDayImg.src = "../widget/img/badges/90days.png";
+    ninetyDayImg.src = "./img/badges/90days.png";
     badgeDisplay.appendChild(ninetyDayImg);
   }
   if (consecutiveSoberDays >= 182) {
     const sixMoImg = document.createElement('img');
-    sixMoImg.src = "../widget/img/badges/6month.png";
+    sixMoImg.src = "./img/badges/6month.png";
     badgeDisplay.appendChild(sixMoImg);
   }
   if (consecutiveSoberDays >= 274) {
     const nineMoImg = document.createElement('img');
-    nineMoImg.src = "../widget/img/badges/9month.png";
+    nineMoImg.src = "./img/badges/9month.png";
     badgeDisplay.appendChild(nineMoImg);
   }
   if (yearMilestones) {
     const yearImg = document.createElement('img');
-    yearImg.src = "../widget/img/badges/1year.png";
+    yearImg.src = "./img/badges/1year.png";
     badgeDisplay.appendChild(yearImg);
   }
 
