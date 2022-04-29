@@ -2,6 +2,13 @@
   box-sizing: border-box;
 }
 
+p,
+span,
+label,
+body {
+  color: #fff !important;
+}
+
 .background-container {
   background-image: url("./img/background.jpg");
   background-repeat: no-repeat;
