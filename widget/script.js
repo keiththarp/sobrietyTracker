@@ -252,21 +252,24 @@ const iconDays = () => {
   const milestonesArray = [
     {
       icon: yearMilestones,
-      iconStyle: 'fa-medal',
+      iconSRC: './img/icons/medal-solid.svg',
       css: 'year-star'
     },
     {
       icon: monthMilestones,
+      iconSRC: './img/icons/star-solid.svg',
       iconStyle: 'fa-star',
       css: 'month-star'
     },
     {
       icon: weekMilestones,
+      iconSRC: './img/icons/sun-solid.svg',
       iconStyle: 'fa-sun',
       css: 'week-star'
     },
     {
       icon: dayMilestones,
+      iconSRC: './img/icons/circle-check-solid.svg',
       iconStyle: 'fa-circle-check',
       css: 'day-star'
     }
@@ -274,14 +277,26 @@ const iconDays = () => {
 
   //Loop through our array to create the milestones display
   milestonesArray.forEach(element => {
-    const { icon, iconStyle, css } = element;
+    const { icon, iconSRC, iconStyle, css } = element;
 
     for (let i = 0; i < icon; i++) {
-      el = document.createElement('i');
-      el.classList.add('fa-solid', iconStyle, css);
+      el = document.createElement('img');
+      el.classList.add('icon-list', css);
+      el.src = iconSRC;
       iconDisplayBox.appendChild(el);
     }
   });
+
+  //Loop through our array to create the milestones display
+  // milestonesArray.forEach(element => {
+  //   const { icon, iconStyle, css } = element;
+
+  //   for (let i = 0; i < icon; i++) {
+  //     el = document.createElement('i');
+  //     el.classList.add('fa-solid', iconStyle, css);
+  //     iconDisplayBox.appendChild(el);
+  //   }
+  // });
 };
 
 landing()

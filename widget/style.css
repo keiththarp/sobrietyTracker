@@ -162,8 +162,15 @@ body {
 }
 
 .icon-label {
-  font-size: 1.1em;
-  display: block;
+  height: 13px;
+  width: 13px;
+  vertical-align: baseline;
+}
+
+.month-icon-label {
+  height: 15px;
+  width: 15px;
+  vertical-align: baseline;
 }
 
 .icon-tally {
@@ -177,59 +184,24 @@ body {
   padding: 0 0 10px 15px;
 }
 
-.year-star-label {
-  font-size: .9em;
-  padding: 2px;
-  color: red;
+.date-edit {
+  margin-left: 20px;
+  height: 23px;
+  width: 23px;
 }
 
-.month-star-label {
-  font-size: .9em;
-  padding: 2px;
-  color: blue;
-}
-
-.week-star-label {
-  font-size: .9em;
-  padding: 2px;
-  color: green;
-}
-
-.day-star-label {
-  font-size: .9em;
-  padding: 2px;
-  color: rgb(255, 200, 0);
-}
-
-.year-star {
-  font-size: 1.4em;
-  padding: 2px;
-  color: red;
+.icon-list {
+  vertical-align: middle;
+  padding: 0 3px 0 2px;
+  height: 22px;
+  width: 22px;
 }
 
 .month-star {
-  font-size: 1.4em;
-  padding: 2px;
-  color: blue;
-}
-
-
-.week-star {
-  font-size: 1.4em;
-  padding: 2px;
-  color: green;
-}
-
-.day-star {
-  font-size: 1.4em;
-  padding: 2px;
-  color: rgb(255, 200, 0);
-}
-
-.date-edit {
-  font-size: 1.2em;
-  padding-left: 20px;
-  color: rgb(20, 103, 220);
+  vertical-align: middle;
+  padding: 0 3px 0 2px;
+  height: 24px;
+  width: 24px;
 }
 
 .sober-since {
