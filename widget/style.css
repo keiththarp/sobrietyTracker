@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-body {
+.background-container {
   background-image: url("./img/background.jpg");
   background-repeat: no-repeat;
   height: 100vh;
