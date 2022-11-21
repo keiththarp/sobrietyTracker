@@ -185,6 +185,7 @@ body {
 }
 
 .date-edit {
+  vertical-align: baseline;
   margin-left: 20px;
   height: 23px;
   width: 23px;
