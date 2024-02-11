@@ -1,107 +1,164 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <!-- JS -->
 
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css" />
-  <!-- JS -->
+    <script src="../../../scripts/buildfire.js"></script>
+  </head>
 
-  <script src="../../../scripts/buildfire.js"></script>
-
-</head>
-
-<body>
-  <div class="background-container">
-    <!-- Sobriety Date Picker -->
-    <div id="sober-picker-view" class="sober-picker-view">
-      <div class="sober-picker-box">
-        <div class="sober-input-container">
-          <label for="sober-date" class="sober-select-label">Select your sober date:</label>
-        </div>
-        <input type="date" id="sober-date" name="sober-date" class="sober-date-input">
-        <div class="cash-savings-label-box">
-          <label for="cash-savings" class="cash-savings-label">So that we can track how much you save by being sober,
-            enter how much per week you were spending to maintain your habit?</label>
-        </div>
-        <div>
-          <span class="expense-dollar">$ </span><input type="number" id="expense-input" name="expense-input">
-        </div>
-        <button onclick="saveSoberDate()" class="btn btn-success sober-save-button">SAVE</button>
-      </div>
-    </div>
-
-    <!-- Relapse Messaging -->
-    <div id="relapse-view" class="clear-view">
-      <div class="sober-picker-box">
-        <p>Thank you</p>
-        <p>If you've just experienced a relapse,
-        <p>we're here to support you.</p>
-        <p>Continue to enter your new sobriety date. </p>
-        <button onclick="goBack()" class="btn btn-primary relapse-btn-breath-space">&larr; Go Back</button>
-        <button onclick="updateSoberDate()" class="btn btn-success">Continue &rarr;</button>
-      </div>
-    </div>
-
-    <!-- App view to use for conditional rendering -->
-    <div class="app-view">
-      <!-- Main View will contain tracker -->
-      <div id="main-view" class="main-view">
-        <!-- Top portion contains continuous days sober-->
-        <div id="consecutive-sober-box" class="">
-          <span class="consecutive-sober-header">Total Sober Days:</span>
-          <span id="consecutive-sober-display"></span>
-        </div>
-
-        <!-- Lower content container -->
-        <div class="lower-content-container">
-
-          <!-- Badge container -->
-          <div id="badge-box" class="ren-container badge-box">
-            <div id="badge-display" class="badge-display">
-            </div>
+  <body>
+    <div class="background-container" id="backgroundContainer">
+      <!-- Sobriety Date Picker -->
+      <div id="sober-picker-view" class="sober-picker-view">
+        <div class="sober-picker-box">
+          <div class="sober-input-container">
+            <label for="sober-date" class="sober-select-label"
+              >Select your sober date:</label
+            >
           </div>
-
-          <!-- Total Days Icons Container-->
-          <div id="total-sober-icon-container" class="ren-container total-sober-icon-container">
-            <div class="icon-label-box">
-              <span class="icon-label"><img class="icon-label" src="./img/icons/medal-solid.svg" alt="year icon" />
-                <span id="years-icon-tally" class="icon-tally"></span> <span id="year-icon-label"></span></span>
-            </div>
-            <div class="icon-label-box">
-              <span class="icon-label"><img class="month-icon-label" src="./img/icons/star-solid.svg"
-                  alt="month icon" />
-                <span id="months-icon-tally" class="icon-tally"></span> <span id="month-icon-label"></span></span>
-            </div>
-            <div class="icon-label-box">
-              <span class="icon-label"><img class="icon-label" src="./img/icons/sun-solid.svg" alt="week icon" /> <span
-                  id="weeks-icon-tally" class="icon-tally"></span> <span id="week-icon-label"></span></span>
-            </div>
-            <div class="icon-label-box">
-              <span class="icon-label"><img class="icon-label" src="./img/icons/circle-check-solid.svg"
-                  alt="day icon" /> <span id="days-icon-tally" class="icon-tally"></span> <span
-                  id="day-icon-label"></span></span>
-            </div>
+          <input
+            type="date"
+            id="sober-date"
+            name="sober-date"
+            class="sober-date-input"
+          />
+          <div class="cash-savings-label-box">
+            <label for="cash-savings" class="cash-savings-label"
+              >So that we can track how much you save by being sober, enter how
+              much per week you were spending to maintain your habit?</label
+            >
           </div>
-          <div id="icon-display-box">
+          <div>
+            <span class="expense-dollar">$ </span
+            ><input type="number" id="expense-input" name="expense-input" />
           </div>
-
-          <!-- Cash saved display and edit -->
-          <div class="ren-container text-center bottom-box">
-            <div id="cash-saved-div">
-              <p class="sober-since">Money Saved: <span id="cash-saved-display-box" class="sober-since-date"></span></p>
-            </div>
-
-            <!-- Sober days display and edit -->
-            <p class="sober-since">Sober since: <span id="sober-date-display-box" class="sober-since-date"></span> <img
-                class="date-edit" onclick="openRelapseView()" src="./img/icons/pen-to-square-solid.svg"
-                alt="triangle with all three sides equal" /></p>
-
-          </div>
+          <button
+            onclick="saveSoberDate()"
+            class="btn btn-success sober-save-button"
+          >
+            SAVE
+          </button>
         </div>
       </div>
-    </div>
-  </div>
-  <script src="script.js"></script>
-</body>
 
+      <!-- Relapse Messaging -->
+      <div id="relapse-view" class="clear-view">
+        <div class="sober-picker-box">
+          <p>Thank you</p>
+          <p>If you've just experienced a relapse,</p>
+          <p>we're here to support you.</p>
+          <p>Continue to enter your new sobriety date.</p>
+          <button
+            onclick="goBack()"
+            class="btn btn-primary relapse-btn-breath-space"
+          >
+            &larr; Go Back
+          </button>
+          <button onclick="updateSoberDate()" class="btn btn-success">
+            Continue &rarr;
+          </button>
+        </div>
+      </div>
+
+      <!-- App view to use for conditional rendering -->
+      <div class="app-view">
+        <!-- Main View will contain tracker -->
+        <div id="main-view" class="main-view">
+          <!-- Top portion contains continuous days sober-->
+          <div id="consecutive-sober-box" class="">
+            <span class="consecutive-sober-header">Total Sober Days:</span>
+            <span id="consecutive-sober-display"></span>
+          </div>
+
+          <!-- Lower content container -->
+          <div class="lower-content-container">
+            <!-- Badge container -->
+            <div id="badge-box" class="ren-container badge-box">
+              <div id="badge-display" class="badge-display"></div>
+            </div>
+
+            <!-- Total Days Icons Container-->
+            <div
+              id="total-sober-icon-container"
+              class="ren-container total-sober-icon-container"
+            >
+              <div class="icon-label-box">
+                <span class="icon-label"
+                  ><img
+                    class="icon-label"
+                    src="./img/icons/medal-solid.svg"
+                    alt="year icon" />
+                  <span id="years-icon-tally" class="icon-tally"></span>
+                  <span id="year-icon-label"></span
+                ></span>
+              </div>
+              <div class="icon-label-box">
+                <span class="icon-label"
+                  ><img
+                    class="month-icon-label"
+                    src="./img/icons/star-solid.svg"
+                    alt="month icon" />
+                  <span id="months-icon-tally" class="icon-tally"></span>
+                  <span id="month-icon-label"></span
+                ></span>
+              </div>
+              <div class="icon-label-box">
+                <span class="icon-label"
+                  ><img
+                    class="icon-label"
+                    src="./img/icons/sun-solid.svg"
+                    alt="week icon" />
+                  <span id="weeks-icon-tally" class="icon-tally"></span>
+                  <span id="week-icon-label"></span
+                ></span>
+              </div>
+              <div class="icon-label-box">
+                <span class="icon-label"
+                  ><img
+                    class="icon-label"
+                    src="./img/icons/circle-check-solid.svg"
+                    alt="day icon" />
+                  <span id="days-icon-tally" class="icon-tally"></span>
+                  <span id="day-icon-label"></span
+                ></span>
+              </div>
+            </div>
+            <div id="icon-display-box"></div>
+
+            <!-- Cash saved display and edit -->
+            <div class="ren-container text-center bottom-box">
+              <div id="cash-saved-div">
+                <p class="sober-since">
+                  Money Saved:
+                  <span
+                    id="cash-saved-display-box"
+                    class="sober-since-date"
+                  ></span>
+                </p>
+              </div>
+
+              <!-- Sober days display and edit -->
+              <p class="sober-since">
+                Sober since:
+                <span
+                  id="sober-date-display-box"
+                  class="sober-since-date"
+                ></span>
+                <img
+                  class="date-edit"
+                  onclick="openRelapseView()"
+                  src="./img/icons/pen-to-square-solid.svg"
+                  alt="triangle with all three sides equal"
+                />
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="setBackground.js"></script>
+  </body>
 </html>
