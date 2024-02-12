@@ -11,7 +11,7 @@
     <div class="uploader-container">
       <div id="instructions-container">
         <div class="bg-header">UPLOAD</div>
-        <p>Upload an image to use for background.</p>
+        <p>Upload an image from your computer.</p>
         <p>Recommended image size: 1536 x 2048px</p>
       </div>
       <div id="image-button-container">
@@ -24,15 +24,26 @@
     <div class="uploader-container">
       <div id="instructions-container">
         <div class="bg-header">SELECT</div>
-        <p>Upload an image to use for background.</p>
-        <p>Recommended image size: 1536 x 2048px</p>
+        <p>Choose one of our</p>
+        <p>background images.</p>
       </div>
       <div id="image-button-container">
-        <button class="button" onclick="newBackground()">
-          <img src="../assets/images/icons8-add-photo-64.png" />
+        <button
+          class="button"
+          onclick="chooseBackground('./img/background.jpg')"
+        >
+          <img src="../assets/images/background-thumb.jpg" />
         </button>
       </div>
-      <script src="design.controller.js"></script>
+      <div id="image-button-container">
+        <button
+          class="button"
+          onclick="chooseBackground('./img/background2.jpg')"
+        >
+          <img src="../assets/images/background2-thumb.jpg" />
+        </button>
+      </div>
+      <!-- <script src="design.controller.js"></script> -->
     </div>
   </body>
 </html>
