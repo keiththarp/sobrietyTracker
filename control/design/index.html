@@ -7,8 +7,32 @@
     <script src="../../../../scripts/buildfire.js"></script>
   </head>
   <body>
-    <button onclick="newBackground()">Click me!!</button>
-    <span>Design - Hello world!</span>
-    <script src="design.controller.js"></script>
+    <h2>Background Image</h2>
+    <div class="uploader-container">
+      <div id="instructions-container">
+        <div class="bg-header">UPLOAD</div>
+        <p>Upload an image to use for background.</p>
+        <p>Recommended image size: 1536 x 2048px</p>
+      </div>
+      <div id="image-button-container">
+        <button class="button" onclick="newBackground()">
+          <img src="../assets/images/icons8-add-photo-64.png" />
+        </button>
+      </div>
+      <script src="design.controller.js"></script>
+    </div>
+    <div class="uploader-container">
+      <div id="instructions-container">
+        <div class="bg-header">SELECT</div>
+        <p>Upload an image to use for background.</p>
+        <p>Recommended image size: 1536 x 2048px</p>
+      </div>
+      <div id="image-button-container">
+        <button class="button" onclick="newBackground()">
+          <img src="../assets/images/icons8-add-photo-64.png" />
+        </button>
+      </div>
+      <script src="design.controller.js"></script>
+    </div>
   </body>
 </html>
