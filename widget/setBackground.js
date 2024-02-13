@@ -9,7 +9,6 @@ function setBackgroundImage() {
       return console.error("Error while retrieving background image data", err);
     }
     backgroundURL = result.data.url;
-    console.log("image URL ", backgroundURL);
     backgroundContainer.style.backgroundImage = `url("${
       backgroundURL || fallBackURL
     }")`;

@@ -15,11 +15,10 @@
         <p>Recommended image size: 1536 x 2048px</p>
       </div>
       <div id="image-button-container">
-        <button class="button" onclick="newBackground()">
+        <button class="upload-button" onclick="newBackground()">
           <img src="../assets/images/icons8-add-photo-64.png" />
         </button>
       </div>
-      <script src="design.controller.js"></script>
     </div>
     <div class="uploader-container">
       <div id="instructions-container">
@@ -27,23 +26,31 @@
         <p>Choose one of our</p>
         <p>background images.</p>
       </div>
-      <div id="image-button-container">
+      <div class="image-button-container">
         <button
           class="button"
-          onclick="chooseBackground('./img/background.jpg')"
+          onclick="chooseBackground('./img/background.jpg', 0)"
         >
           <img src="../assets/images/background-thumb.jpg" />
         </button>
       </div>
-      <div id="image-button-container">
+      <div class="image-button-container">
         <button
           class="button"
-          onclick="chooseBackground('./img/background2.jpg')"
+          onclick="chooseBackground('./img/background2.jpg', 1)"
         >
           <img src="../assets/images/background2-thumb.jpg" />
         </button>
       </div>
-      <!-- <script src="design.controller.js"></script> -->
+      <div class="image-button-container">
+        <button
+          class="button"
+          onclick="chooseBackground('./img/background3.jpg', 2)"
+        >
+          <img src="../assets/images/background3-thumb.jpg" />
+        </button>
+      </div>
+      <script src="design.controller.js"></script>
     </div>
   </body>
 </html>
